@@ -7,7 +7,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t chandinims/flaskapp:$BUILD_NUMBER .'
+                sh 'docker build -t chandinims/app:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub'){
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push chandinims/flaskapp:$BUILD_NUMBER'
+                sh 'docker push chandinims/app:$BUILD_NUMBER'
             }
         }
 }
